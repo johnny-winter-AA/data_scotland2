@@ -36,7 +36,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  data_scotland2:
-    # Applies to all files under models/example/
+  data_scotland_test:
     curated:
       +materialized: table
+    staging:
+      +materialized: ephemeral  
+

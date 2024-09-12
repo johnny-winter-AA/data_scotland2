@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: "Table containing product data for Wide World Importers"
+    columns:
+      - name: ProductKey
+        description: "The surrogate primary key for this table"
+      - name: StockItemID
+        description: "The natural key for this table"
+      - name: ProductName
+        description: "The name of the product"
+      - name: ProductBrand
+        description: "The brand of the product"
+      - name: ProductColour
+        description: "The colour of the product"
+      - name: SupplierName
+        description: "The supplier of the product"
+      - name: SupplierReference
+        description: "Reference code provided by the supplier"
+      - name: SupplierCategoryName
+        description: "The category that the supplier belongs to"

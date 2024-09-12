@@ -1,0 +1,22 @@
+sources:
+  - name: wwi_purchasing
+    database: j0hnnyw1nter
+    schema: wwi_purchasing
+    tables:
+      - name: SupplierCategories
+      - name: Suppliers
+  - name: wwi_sales
+    database: j0hnnyw1nter
+    schema: wwi_sales
+    tables:  
+      - name: BuyingGroups
+      - name: CustomerCategories
+      - name: Customers
+      - name: OrderLines
+      - name: Orders
+  - name: wwi_warehouse
+    database: j0hnnyw1nter
+    schema: wwi_warehouse
+    tables:
+      - name: Colors
+      - name: StockItems

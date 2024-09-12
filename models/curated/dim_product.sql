@@ -1,19 +1,21 @@
+{{ config(tags=["dimension"]) }}
+
 WITH 
-stockItems AS (SELECT * FROM {{ source("wwi_warehouse", "StockItems") }}),
+stockItems AS (SELECT * FROM {{ ref("stg_wwi_warehouse__StockItems") }}),
 
-colors AS (SELECT * FROM {{ source("wwi_warehouse", "Colors") }}),
+colors AS (SELECT * FROM {{ ref("stg_wwi_warehouse__Colors") }}),
 
-suppliers AS (SELECT * FROM {{ source("wwi_purchasing", "Suppliers") }}),
+suppliers AS (SELECT * FROM {{ ref("stg_wwi_purchasing__Suppliers") }}),
 
-supplierCategories AS (SELECT * FROM {{ source("wwi_purchasing", "SupplierCategories") }}),
+supplierCategories AS (SELECT * FROM {{ ref("stg_wwi_purchasing__SupplierCategories") }}),
 
 final AS (
 SELECT 
     ROW_NUMBER() OVER (ORDER BY si.StockItemID) AS ProductKey,
     si.StockItemID,
-    si.StockItemName AS ProductName,
-    si.Brand AS ProductBrand,
-    c.ColorName AS ProductColour,
+    si.ProductName,
+    si.ProductBrand,
+    c.ProductColour,
     s.SupplierName,
     s.SupplierReference,
     sc.SupplierCategoryName
@@ -28,4 +30,3 @@ FROM
 )
 
 SELECT * FROM final
-

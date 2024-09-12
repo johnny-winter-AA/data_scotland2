@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'data_scotland2'
+name: 'data_scotland_test'
 version: '1.0.0'
 config-version: 2
 
@@ -36,7 +36,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  data_scotland2:
-    # Applies to all files under models/example/
+  data_scotland_test:
     curated:
       +materialized: table
+    staging:
+      +materialized: ephemeral  
+
